@@ -7,21 +7,20 @@ uploadArchives {
             repository(url: "file:///C:/opt/measurence/maven/")
             pom.groupId = 'com.measurence'
             pom.artifactId = 'android-sdk'
-            pom.version = '0.0.1'
+            pom.version = '0.0.5'
         }
     }
 }
 
 android {
     compileSdkVersion 20
-    buildToolsVersion "20.0.0"
-
+    buildToolsVersion '20.0.0'
     defaultConfig {
-        applicationId "com.measurence.sdk.android"
+        applicationId 'com.measurence.sdk.android'
         minSdkVersion 15
         targetSdkVersion 19
         versionCode 1
-        versionName "1.0"
+        versionName '1.0'
     }
     buildTypes {
         release {
@@ -29,8 +28,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.google.android.gms:play-services:3.1.+"
+    compile 'commons-io:commons-io:2.4'
+    compile 'com.android.support:support-v4:20.0.0'
 }
