@@ -36,7 +36,7 @@ public class MeasurenceAPISubscriptions {
     public static final String API_SUBSCRIPTION_HOST = "api.us-east-1.measurence.com";
     public static final String API_SUBSCRIPTION_PORT = "80";
     public static final String ANDROID_API_SUBSCRIPTION_PATH = "/api/android/apply_subscription";
-    public static final String HTTP_POST_API_SUBSCRIPTION_PATH = "/api/http_post/apply_subscription/";
+    public static final String HTTP_POST_API_SUBSCRIPTION_PATH = "/api/http_post/apply_subscription";
 
     public enum SubscriptionResult {
         SUBSCRIBED,
