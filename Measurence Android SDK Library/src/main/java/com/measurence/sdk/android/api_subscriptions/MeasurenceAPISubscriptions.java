@@ -38,7 +38,7 @@ public class MeasurenceAPISubscriptions {
     public static final String ANDROID_API_SUBSCRIPTION_PATH = "/api/android/apply_subscription";
     public static final String HTTP_POST_API_SUBSCRIPTION_PATH = "/api/http_post/apply_subscription/";
 
-    enum SubscriptionResult {
+    public enum SubscriptionResult {
         SUBSCRIBED,
         ALREADY_SUBSCRIBED
     }

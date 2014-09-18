@@ -68,4 +68,12 @@ public class PresenceSessionInterval {
         result = 31 * result + (int) (end ^ (end >>> 32));
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "PresenceSessionInterval{" +
+                "start=" + start +
+                ", end=" + end +
+                '}';
+    }
 }

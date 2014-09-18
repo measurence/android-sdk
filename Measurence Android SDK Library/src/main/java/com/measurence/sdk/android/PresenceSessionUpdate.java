@@ -103,4 +103,16 @@ public class PresenceSessionUpdate {
         result = 31 * result + (userIdentities != null ? userIdentities.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "PresenceSessionUpdate{" +
+                "base64HashedDeviceId='" + base64HashedDeviceId + '\'' +
+                ", interval=" + interval +
+                ", isNewVisitorInStore=" + isNewVisitorInStore +
+                ", status='" + status + '\'' +
+                ", storeKey='" + storeKey + '\'' +
+                ", userIdentities=" + userIdentities +
+                '}';
+    }
 }

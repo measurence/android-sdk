@@ -52,4 +52,11 @@ public class UserIdentity {
     public int hashCode() {
         return id.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "UserIdentity{" +
+                "id='" + id + '\'' +
+                '}';
+    }
 }
