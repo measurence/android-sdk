@@ -87,7 +87,7 @@ public class MeasurenceAPISubscriptions {
     private SubscriptionResult parseSubscriptionResult(String subscriptionResult) throws UnknownSubscriptionResultException {
 
         if (subscriptionResult.indexOf("already subscribed") >= 0) return SubscriptionResult.ALREADY_SUBSCRIBED;
-        if (subscriptionResult.indexOf("subscribed") >= 0) return SubscriptionResult.SUBSCRIBED;
+        if (subscriptionResult.indexOf("succeeded") >= 0) return SubscriptionResult.SUBSCRIBED;
 
         throw new UnknownSubscriptionResultException(subscriptionResult);
     }

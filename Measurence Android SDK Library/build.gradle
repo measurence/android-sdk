@@ -7,7 +7,7 @@ uploadArchives {
             repository(url: "file:///" + System.getProperty("user.home") + "/.m2/repository/")
             pom.groupId = 'com.measurence'
             pom.artifactId = 'android-sdk'
-            pom.version = '0.0.8'
+            pom.version = '0.0.9'
         }
     }
 }
