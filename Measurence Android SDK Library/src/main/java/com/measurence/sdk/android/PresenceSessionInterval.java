@@ -24,16 +24,29 @@ package com.measurence.sdk.android;
  * THE SOFTWARE.
  */
 
-public class UserIdentity {
+import java.util.Date;
 
-    private String id;
+public class PresenceSessionInterval {
 
-    public UserIdentity(String id) {
-        this.id = id;
+    private long start;
+    private long end;
+
+    public PresenceSessionInterval(long startInMillisFromEpoch, long endInMillisFromExpoch) {
+        this.start = startInMillisFromEpoch;
+        this.end = endInMillisFromExpoch;
     }
 
-    public String getId() {
-        return id;
+    public PresenceSessionInterval(Date start, Date end) {
+        this.start = start.getTime();
+        this.end = end.getTime();
+    }
+
+    public Date getStart() {
+        return new Date(start);
+    }
+
+    public Date getEnd() {
+        return new Date(end);
     }
 
     @Override
@@ -41,15 +54,18 @@ public class UserIdentity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        UserIdentity that = (UserIdentity) o;
+        PresenceSessionInterval that = (PresenceSessionInterval) o;
 
-        if (!id.equals(that.id)) return false;
+        if (end != that.end) return false;
+        if (start != that.start) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        int result = (int) (start ^ (start >>> 32));
+        result = 31 * result + (int) (end ^ (end >>> 32));
+        return result;
     }
 }

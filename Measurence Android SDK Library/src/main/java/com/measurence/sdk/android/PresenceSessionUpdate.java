@@ -26,76 +26,81 @@ package com.measurence.sdk.android;
 
 import com.google.gson.Gson;
 
-import org.joda.time.Interval;
+import java.util.List;
 
 public class PresenceSessionUpdate {
 
     private String base64HashedDeviceId;
-    private Interval interval;
+    private PresenceSessionInterval interval;
     private Boolean isNewVisitorInStore;
     private String status;
     private String storeKey;
-    private UserIdentity userIdentity;
+    private List<UserIdentity> userIdentities;
 
     public static PresenceSessionUpdate fromJson(String sessionUpdateJson) {
         Gson gson = new Gson();
         return gson.fromJson(sessionUpdateJson, PresenceSessionUpdate.class);
     }
 
-    public PresenceSessionUpdate(String base64HashedDeviceId, Interval interval, Boolean isNewVisitorInStore, String status, String storeKey, UserIdentity userIdentity) {
+    public PresenceSessionUpdate(String base64HashedDeviceId, PresenceSessionInterval interval, Boolean isNewVisitorInStore, String status, String storeKey, List<UserIdentity> userIdentities) {
         this.base64HashedDeviceId = base64HashedDeviceId;
         this.interval = interval;
         this.isNewVisitorInStore = isNewVisitorInStore;
         this.status = status;
         this.storeKey = storeKey;
-        this.userIdentity = userIdentity;
+        this.userIdentities = userIdentities;
     }
 
     public String getBase64HashedDeviceId() {
         return base64HashedDeviceId;
     }
 
-    public void setBase64HashedDeviceId(String base64HashedDeviceId) {
-        this.base64HashedDeviceId = base64HashedDeviceId;
-    }
-
-    public Interval getInterval() {
+    public PresenceSessionInterval getInterval() {
         return interval;
-    }
-
-    public void setInterval(Interval interval) {
-        this.interval = interval;
     }
 
     public Boolean getIsNewVisitorInStore() {
         return isNewVisitorInStore;
     }
 
-    public void setIsNewVisitorInStore(Boolean isNewVisitorInStore) {
-        this.isNewVisitorInStore = isNewVisitorInStore;
-    }
-
     public String getStatus() {
         return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getStoreKey() {
         return storeKey;
     }
 
-    public void setStoreKey(String storeKey) {
-        this.storeKey = storeKey;
+    public List<UserIdentity> getUserIdentities() {
+        return userIdentities;
     }
 
-    public UserIdentity getUserIdentity() {
-        return userIdentity;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PresenceSessionUpdate that = (PresenceSessionUpdate) o;
+
+        if (!base64HashedDeviceId.equals(that.base64HashedDeviceId)) return false;
+        if (!interval.equals(that.interval)) return false;
+        if (!isNewVisitorInStore.equals(that.isNewVisitorInStore)) return false;
+        if (!status.equals(that.status)) return false;
+        if (!storeKey.equals(that.storeKey)) return false;
+        if (userIdentities != null ? !userIdentities.equals(that.userIdentities) : that.userIdentities != null)
+            return false;
+
+        return true;
     }
 
-    public void setUserIdentity(UserIdentity userIdentity) {
-        this.userIdentity = userIdentity;
+    @Override
+    public int hashCode() {
+        int result = base64HashedDeviceId.hashCode();
+        result = 31 * result + interval.hashCode();
+        result = 31 * result + isNewVisitorInStore.hashCode();
+        result = 31 * result + status.hashCode();
+        result = 31 * result + storeKey.hashCode();
+        result = 31 * result + (userIdentities != null ? userIdentities.hashCode() : 0);
+        return result;
     }
 }
