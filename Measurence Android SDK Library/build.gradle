@@ -4,7 +4,7 @@ apply plugin: 'maven'
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "file:///C:/opt/measurence/maven/")
+            repository(url: "file:///" + System.getProperty("user.home") + "/.m2/repository/")
             pom.groupId = 'com.measurence'
             pom.artifactId = 'android-sdk'
             pom.version = '0.0.5'
