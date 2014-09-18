@@ -16,3 +16,30 @@
 # This option should only be used with decoupled projects. More details, visit
 # http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
 # org.gradle.parallel=true
+POM_NAME=Measurence Android SDK
+POM_ARTIFACT_ID=measurence-android-sdk
+POM_PACKAGING=aar
+VERSION_NAME=0.2.0-SNAPSHOT
+VERSION_CODE=1
+GROUP=com.measurence
+
+POM_DESCRIPTION=Measurence Android SDK library
+POM_URL=https://bitbucket.org/measurence/measurence-android-sdk
+POM_SCM_URL=https://pslavazza@bitbucket.org/measurence/measurence-android-sdk.git
+POM_SCM_CONNECTION=scm:hg:https://bitbucket.org/johndoe/foo
+POM_SCM_DEV_CONNECTION=scm:hg:https://bitbucket.org/johndoe/foo
+POM_LICENCE_NAME=MIT License
+POM_LICENCE_URL=https://bitbucket.org/measurence/measurence-android-sdk
+POM_LICENCE_DIST=repo
+POM_DEVELOPER_ID=pslavazza
+POM_DEVELOPER_NAME=Piercarlo Slavazza
+
+NEXUS_USERNAME=pslavazza
+NEXUS_PASSWORD=<your nexus user name>
+
+SNAPSHOT_REPOSITORY_URL=https://oss.sonatype.org/content/repositories/snapshots
+RELEASE_REPOSITORY_URL=https://oss.sonatype.org/service/local/staging/deploy/maven2
+
+signing.keyId=<the id of your key>
+signing.password=<the key password>
+signing.secretKeyRingFile=<the secretKeyRingFile>
