@@ -25,22 +25,24 @@ The Measurence API Platform is currently intended to serve 3 use cases:
 
 The Android SDK is intended to be embedded in an Android mobile app in order to implement the related use cases (see previous Sections).
 
-A Demp App demonstrating how to embed the SDK is available at: https://bitbucket.org/measurence/measurence-android-sdk-demo-app
+A Demo App demonstrating how to embed the SDK is available at: https://bitbucket.org/measurence/measurence-android-sdk-demo-app
 
 Please refer to its documentation for a better understanding on how to use the Measurence Android SDK.
 
 The following Sections are intended to provide information about maintenance of the SDK.
 
-# Development environmente Setup
+# Development environment Setup
 
 ## Gradle properties
 
 Copy the `gradle.properties.example` file to `gradle.properties`.
 
-Replace the placeholders with proper settings - only needed if you are going yto release a new version of the SDK to Maven Central. See this reference guide: http://zserge.com/blog/gradle-maven-publish.html
+Replace the placeholders with proper settings - only needed if you are going to release a new version of the SDK to Maven Central. See this reference guide: http://zserge.com/blog/gradle-maven-publish.html
 
 # Release
 
+1. configure the `local.properties` file; it must contain at least a line with the path of the Android SDK `sdk.dir=C\:\\apps\\programming\\android-studio\\sdk`
+    * note that, if you previously opened the project with Android Studio, you should have the file already configured
 1. setup the VERSION_NAME in the `gradle.properties`
 1. execute `gradle uploadArchives`
 1. release the SDK from the Sonatype dashboard - see this reference guide: http://zserge.com/blog/gradle-maven-publish.html
