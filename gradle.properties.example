@@ -24,10 +24,10 @@ VERSION_CODE=1
 GROUP=com.measurence
 
 POM_DESCRIPTION=Measurence Android SDK library
-POM_URL=https://bitbucket.org/measurence/measurence-android-sdk
-POM_SCM_URL=https://pslavazza@bitbucket.org/measurence/measurence-android-sdk.git
-POM_SCM_CONNECTION=scm:hg:https://bitbucket.org/johndoe/foo
-POM_SCM_DEV_CONNECTION=scm:hg:https://bitbucket.org/johndoe/foo
+POM_URL=https://github.com/measurence/android-sdk
+POM_SCM_URL=https://github.com/measurence/android-sdk.git
+POM_SCM_CONNECTION=git@github.com:measurence/android-sdk.git
+POM_SCM_DEV_CONNECTION=git@github.com:measurence/android-sdk.git
 POM_LICENCE_NAME=MIT License
 POM_LICENCE_URL=https://bitbucket.org/measurence/measurence-android-sdk
 POM_LICENCE_DIST=repo
