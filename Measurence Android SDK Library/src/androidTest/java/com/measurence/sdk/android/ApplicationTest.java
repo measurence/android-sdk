@@ -20,7 +20,6 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         String base64HashedDeviceId = "S92SjFwolIn5YJJlQ5U44QTaO5NOrNQvCudxg7i/p8s=";
         PresenceSessionInterval presenceSessionInterval = new PresenceSessionInterval(new Date(), new Date());
         boolean isNewVisitorInStore = true;
-        String status = "end";
         String storeKey = "example_store";
         final UserIdentity userIdentity = new UserIdentity("example_identity");
         List<UserIdentity> userIdentities = new ArrayList<UserIdentity>() {{
@@ -34,7 +33,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
                 "        \"start\": " + presenceSessionInterval.getStart().getTime() + "\n" +
                 "    },\n" +
                 "    \"isNewVisitorInStore\": " + isNewVisitorInStore + ",\n" +
-                "    \"status\": \"" + status + "\",\n" +
+                "    \"status\": \"end\",\n" +
                 "    \"storeKey\": \"" + storeKey + "\",\n" +
                 "    \"userIdentities\": [\n" +
                 "        {\n" +
@@ -47,7 +46,6 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
                 base64HashedDeviceId,
                 presenceSessionInterval,
                 isNewVisitorInStore,
-                status,
                 storeKey,
                 userIdentities
                 );
