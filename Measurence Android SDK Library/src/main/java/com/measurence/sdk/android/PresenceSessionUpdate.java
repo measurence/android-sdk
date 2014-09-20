@@ -33,18 +33,22 @@ public class PresenceSessionUpdate {
     private String base64HashedDeviceId;
     private PresenceSessionInterval interval;
     private Boolean isNewVisitorInStore;
+    private String status;
     private String storeKey;
     private List<UserIdentity> userIdentities;
+    private String updateUUID;
 
     public static PresenceSessionUpdate fromJson(String sessionUpdateJson) {
         Gson gson = new Gson();
         return gson.fromJson(sessionUpdateJson, PresenceSessionUpdate.class);
     }
 
-    public PresenceSessionUpdate(String base64HashedDeviceId, PresenceSessionInterval interval, Boolean isNewVisitorInStore, String storeKey, List<UserIdentity> userIdentities) {
+    public PresenceSessionUpdate(String base64HashedDeviceId, String updateUUID, PresenceSessionInterval interval, Boolean isNewVisitorInStore, String status, String storeKey, List<UserIdentity> userIdentities) {
         this.base64HashedDeviceId = base64HashedDeviceId;
+        this.updateUUID = updateUUID;
         this.interval = interval;
         this.isNewVisitorInStore = isNewVisitorInStore;
+        this.status = status;
         this.storeKey = storeKey;
         this.userIdentities = userIdentities;
     }
@@ -59,6 +63,10 @@ public class PresenceSessionUpdate {
 
     public Boolean getIsNewVisitorInStore() {
         return isNewVisitorInStore;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public String getStoreKey() {
@@ -79,6 +87,8 @@ public class PresenceSessionUpdate {
         if (!base64HashedDeviceId.equals(that.base64HashedDeviceId)) return false;
         if (!interval.equals(that.interval)) return false;
         if (!isNewVisitorInStore.equals(that.isNewVisitorInStore)) return false;
+        if (!status.equals(that.status)) return false;
+        if (!updateUUID.equals(that.updateUUID)) return false;
         if (!storeKey.equals(that.storeKey)) return false;
         if (userIdentities != null ? !userIdentities.equals(that.userIdentities) : that.userIdentities != null)
             return false;
@@ -91,6 +101,8 @@ public class PresenceSessionUpdate {
         int result = base64HashedDeviceId.hashCode();
         result = 31 * result + interval.hashCode();
         result = 31 * result + isNewVisitorInStore.hashCode();
+        result = 31 * result + status.hashCode();
+        result = 31 * result + updateUUID.hashCode();
         result = 31 * result + storeKey.hashCode();
         result = 31 * result + (userIdentities != null ? userIdentities.hashCode() : 0);
         return result;
@@ -100,10 +112,16 @@ public class PresenceSessionUpdate {
     public String toString() {
         return "PresenceSessionUpdate{" +
                 "base64HashedDeviceId='" + base64HashedDeviceId + '\'' +
+                ", updateUUID='"  + updateUUID + '\'' +
                 ", interval=" + interval +
                 ", isNewVisitorInStore=" + isNewVisitorInStore +
+                ", status='" + status + '\'' +
                 ", storeKey='" + storeKey + '\'' +
                 ", userIdentities=" + userIdentities +
                 '}';
+    }
+
+    public String getUpdateUUID() {
+        return updateUUID;
     }
 }

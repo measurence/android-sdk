@@ -6,6 +6,7 @@ import android.test.ApplicationTestCase;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
@@ -20,7 +21,9 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         String base64HashedDeviceId = "S92SjFwolIn5YJJlQ5U44QTaO5NOrNQvCudxg7i/p8s=";
         PresenceSessionInterval presenceSessionInterval = new PresenceSessionInterval(new Date(), new Date());
         boolean isNewVisitorInStore = true;
+        String status = "end";
         String storeKey = "example_store";
+        String updateUUID = UUID.randomUUID().toString();
         final UserIdentity userIdentity = new UserIdentity("example_identity");
         List<UserIdentity> userIdentities = new ArrayList<UserIdentity>() {{
             add(userIdentity);
@@ -28,12 +31,13 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
 
         String sessionUpdateJsonSerialization = "{\n" +
                 "    \"base64HashedDeviceId\": \"" + base64HashedDeviceId + "\",\n" +
+                "    \"updateUUID\": \"" + updateUUID + "\",\n" +
                 "    \"interval\": {\n" +
                 "        \"end\": " + presenceSessionInterval.getEnd().getTime() + ",\n" +
                 "        \"start\": " + presenceSessionInterval.getStart().getTime() + "\n" +
                 "    },\n" +
                 "    \"isNewVisitorInStore\": " + isNewVisitorInStore + ",\n" +
-                "    \"status\": \"end\",\n" +
+                "    \"status\": \"" + status + "\",\n" +
                 "    \"storeKey\": \"" + storeKey + "\",\n" +
                 "    \"userIdentities\": [\n" +
                 "        {\n" +
@@ -44,8 +48,9 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         PresenceSessionUpdate presenceSessionUpdate = PresenceSessionUpdate.fromJson(sessionUpdateJsonSerialization);
         PresenceSessionUpdate expectedPresenceSessionUpdate = new PresenceSessionUpdate(
                 base64HashedDeviceId,
-                presenceSessionInterval,
+                updateUUID, presenceSessionInterval,
                 isNewVisitorInStore,
+                status,
                 storeKey,
                 userIdentities
                 );
